@@ -1,0 +1,359 @@
+/*
+ * Main stylesheet for Freeads
+ *
+ * Author: Mathieu Carrière, Jean-jackson Médilien, Antonin Prion
+ */
+
+:root {
+	--black: #1b1c1c;
+	--white: #FFFFFF;
+	--red: #CD4631;
+	--main-color: #f7ede2;
+	--second-color: #457b9d;
+	--third-color: #a8dadc;
+	--fourth-color: #f1faee;
+	--fifth-color: #e63946;
+	--header-h: 80px;
+	--footer-h: 120px;
+}
+
+* {
+	box-sizing: border-box;
+}
+
+html {
+	background-color: #FFFFFD;
+	font-size: 16px;
+}
+
+body {
+	background-color: var(--white);
+	margin: auto;
+	padding-top: var(--header-h);
+	display: flex;
+    flex-flow: column;
+    min-height: 100vh;
+}
+
+a,
+a:active,
+a:focus {
+	text-decoration: none;
+	color: inherit;
+}
+
+a:hover {
+	color: var(--second-color);
+}
+
+label {
+	display: block;
+	margin: 8px auto;
+}
+
+#main-content form {
+	width:60%;
+	margin: auto;
+}
+
+input,
+select {
+	height: 48px;
+	line-height: 48px;
+	width: 100%;
+	margin-bottom: 8px;
+	padding:0 1rem;
+}
+
+input[type="file"]{
+	padding:0;
+}
+
+.input-error {
+	color: red;
+	margin: 0;
+	margin-bottom: 5px;
+	text-align: right;
+}
+
+select {
+	appearance: none;
+	border: 1px solid grey;
+	line-height: inherit;
+}
+
+button[type='submit'] {
+	min-width: 120px;
+	min-height: 48px;
+	padding: 15px;
+}
+
+button.logout {
+	border: none;
+	font-size: 1.2em;
+	background-color: #FFF;
+}
+
+.back{
+	margin:3rem 0;
+}
+
+.container{
+	padding:5rem 0;
+}
+
+h1{
+	padding:0 2rem;
+}
+
+@media (min-width:780px){
+	h1{
+		padding:0;
+	}
+}
+
+/**
+ * GENERAL CLASSES
+ */
+
+.d-flex {
+	display: flex;
+}
+
+.jc-r {
+	justify-content: right;
+}
+
+.alit-ctr {
+	align-items: center;
+}
+
+.flt-l {
+	float: left;
+}
+
+.flt-r {
+	float: right;
+}
+
+.clr-b {
+	clear: both;
+}	
+
+.text-center {
+	text-align: center;
+}
+
+.text-left {
+	text-align: left;
+}
+
+.text-right {
+	text-align: right;
+}
+
+.w-100 {
+	width: 100%;
+}
+
+.managementLink{
+	width:100%;
+}
+
+/**
+ * HEADER
+ */
+
+#main-header {
+	background-color: var(--white);
+	position: fixed;
+	top: 0;
+	right: 0;
+	left: 0;
+	width: 100%;
+	margin: auto;
+	height: var(--header-h);
+	line-height: var(--header-h);
+	border-bottom: 1px solid var(--second-color);
+	overflow: hidden;
+}
+
+#main-content,
+#footer-content,
+#header-content {
+	max-width: 1200px;
+	margin: auto;
+	min-width: 40%;
+}
+
+#main-header a {
+	font-size: 1.2em;
+	padding: 0px 25px;
+}
+
+/**
+ * FOOTER
+ */
+#main-footer {
+	clear: both;
+	width: 100%;
+	min-height: var(--footer-h);
+	text-align: center;
+	margin-top: 25px;
+	padding-top: 25px;
+	background-color: #f4f6f7;
+}
+
+#footer-content {
+	max-width: 1200px;
+}
+
+/**
+ * AD LIST VIEW
+ */
+
+ .ad-list {
+	 flex-flow:row wrap;
+	 padding:5rem 0;
+	 
+ }
+
+.ad-list .ad {
+	flex:1 1 100%;
+	height: 550px;
+	padding: 0 2rem;
+	flex-flow:column;
+	box-shadow:1px 1px 1px #efefef;
+	margin:2rem 0;
+}
+
+@media (min-width:780px){
+
+	.ad-list .ad {
+		flex:1 1 calc(33% - 2rem);
+		max-width:33%;
+		padding: 0 1rem;
+		margin:0.5rem;
+	}
+
+}
+
+.ad-list .ad img {
+	max-width:100%;
+	width:100%;
+	min-height:50%;
+	object-fit:cover;
+}
+
+.ad-list .about{
+	flex-flow:row wrap;
+}
+
+.ad-list .info{
+width: 100%;
+justify-content: space-between;
+}
+
+.ad-list .info h4{
+flex: 1 1 60%;
+}
+
+.ad-list .info .price{
+	line-height:1;
+}
+
+.managementLink form{
+	display: flex;
+    flex: 1 1 80%;
+    justify-content: flex-end;
+}
+
+.managementLink a, .cta{
+	min-width: 120px;
+    min-height: 48px;
+    padding: 15px;
+	border-radius: 2px;
+	border:0.5px solid black;
+	background-color:#efefef;
+	text-align:center;
+	color:#1b1c1c;
+	
+}
+
+.managementLink a:hover{
+background-color:rgb(228, 228, 228);
+}
+
+.ad-list .ad .about > a{
+	display:block;
+	width:100%;
+	flex:1 1 100%;
+}
+
+.ad-list .ad title{
+	font-size:2.5rem;
+}
+/**
+ * FLASH-MESSAGE BOX
+ */
+.flash-message {
+	position: fixed;
+	bottom: 25px;
+	right: 25px;
+	color: var(--main-color);
+	background-color: var(--third-color);
+	padding: 10px;
+	border: 1px solid var(--fourth-color);
+	border-radius: 8px;
+}
+
+.error.flash-message {
+	background-color: var(--red);
+	font-weight: 900;
+}
+
+/**
+* SEARCH
+*/
+
+.searchList .ad{
+	height:auto;
+}
+
+/**
+* SHOW AD
+*/
+
+.pictures{
+	flex-flow:row wrap;
+	justify-content:center;
+}
+
+.pictures img{
+	display:block;
+	flex:1 1 calc(10% - 1rem);
+	margin:1rem 0rem;
+	max-width:100%;
+	padding:0 1rem;
+	
+}
+
+.individualAd{
+	flex-flow:row wrap;
+}
+
+.detail,.individualAd p{
+	padding:0 1rem;
+}
+
+@media (min-width:780px){
+	.pictures img{
+		max-width:25%;
+		flex:1 1 calc(25% - 1rem);
+		margin:0 0.5rem;	
+	}
+
+	.detail{
+		margin:2rem 0;
+	}
+}
